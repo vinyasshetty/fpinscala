@@ -77,8 +77,8 @@ object List { // `List` companion object. Contains functions for creating and wo
   def init[A](l: List[A]): List[A] = {
     l match {
       case Nil => throw new Exception("Empty List")
-      case Cons(x,xs) if xs != Nil => Cons(x,init((xs)))
-      case Cons(x,xs) if xs == Nil => Nil
+      case Cons(x,Nil)  => Nil
+      case Cons(x,xs)  => Cons(x,init((xs)))
     }
   }
 
